@@ -1,9 +1,10 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container w-50 mt-5">
+<h2 class='text-center'>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs  mt-5">
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,15 +22,22 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-  </div>
+      <input class="form-control mt-3" type="text" placeholder="username" aria-label="default input example">
+      <label for="exampleFormControlTextarea1" class="form-label mt-5">Bio</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <label for="exampleFormControlTextarea1" class="form-label">Expérience</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
   </div>
+  
+  <div class='row p-2 mt-5'>
+    <div class="form-actions btn btn-primary mt-3">
+      <%= f.button :submit, "Update", class:"text-white" %>
+    </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3 class='text-center mt-3'>Cancel my account</h3>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+</div>
 <%= link_to "Back", :back %>
