@@ -1,0 +1,14 @@
+<div class="container">
+  <%= link_to "Post a new offer", new_offer_path, class: "btn btn-primary" %>
+  <ul>
+    <% @offers.each do |offer| %>
+      <li>
+        <h2><%= link_to offer.name, offer_path(offer) %></h2>
+        <p><%= offer.sport %> prix: <%= offer.price %> €</p>
+        <%# <% if offer.photo? %>
+          <%# <%= offer.photo %>
+        <%# <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

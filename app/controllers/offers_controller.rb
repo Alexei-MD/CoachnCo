@@ -1,4 +1,6 @@
 class OffersController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
     @offers = Offer.all
   end
@@ -7,11 +9,23 @@ class OffersController < ApplicationController
     @offer = Offer.new
   end
 
-  def show
+  def create
+    # @user = current_user
+    @offer = Offer.new(offer_params)
+    @offer.user = current_user
+    # raise
+    if @offer.save
+      redirect_to offer_path(@offer)
+    else
+      render :new, status: :unprocessable_entity
+    end
+
   end
 
-  def create
+  def show
+    @offer = Offer.find(params[:id])
   end
+
 
   def edit
   end
@@ -20,5 +34,11 @@ class OffersController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def offer_params
+    params.require(:offer).permit(:name, :sport, :price, :photo)
   end
 end

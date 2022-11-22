@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Ajouter votre nouvelle offre</h1>
+
+  <%= simple_form_for @offer do |f| %>
+    <%= f.input  :name %>
+    <%= f.input  :sport, as: :select, collection: Offer::SPORT %>
+    <%= f.input  :price %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, "Créer", class: "btn btn-primary" %>
+    <%= link_to 'Annuler', root_path, class: 'btn btn-danger' %>
+    <% end %>
+</div>
