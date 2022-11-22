@@ -1,5 +1,14 @@
-<% if policy(@offer).edit? %>
+<div class="container">
+  <h1><%= @offer.name %></h1>
+  <p>
+    <%= @offer.sport %>
+    <%= @offer.price %> €
+    <% if @offer.photo.key? %>
+      <%= @offer.photo %>
+    <% end %>
+  </p>
+  <% if policy(@offer).edit? %>
   <%= link_to "Edit this offer", edit_offer_path(@offer) %> |
-<% end %>
-<!-- [...] -->
-<%= button_to "Destroy this offer", @offer, method: :delete if policy(@offer).destroy? %>
+  <% end %>
+  <%= button_to "Destroy this offer", @offer, method: :delete if policy(@offer).destroy? %>
+</div>

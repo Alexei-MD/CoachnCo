@@ -11,15 +11,25 @@ class OffersController < ApplicationController
     authorize @offer
   end
 
-  def show
-    authorize @offer
-  end
-
   def create
+    # @user = current_user
     @offer = Offer.new(offer_params)
     @offer.user = current_user
     authorize @offer
+    # raise
+    if @offer.save
+      redirect_to offer_path(@offer)
+    else
+      render :new, status: :unprocessable_entity
+    end
+
   end
+
+  def show
+    @offer = Offer.find(params[:id])
+    authorize @offer
+  end
+
 
   def edit
     authorize @offer
@@ -42,5 +52,11 @@ class OffersController < ApplicationController
 
   def set_offer
     @offer = Offer.find(params[:id])
+  end
+
+  private
+
+  def offer_params
+    params.require(:offer).permit(:name, :sport, :price, :photo)
   end
 end
