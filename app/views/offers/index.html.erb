@@ -1,14 +1,41 @@
+  <div class="banner">
+      <%= image_tag "banner.png" ,  height: 400, width: "100%"%>
+  </div>
 <div class="container">
-  <%= link_to "Post a new offer", new_offer_path, class: "btn btn-primary" %>
-  <ul>
+  <div class="icons">
+     <%= link_to "#", class: "icon" do %>
+        <%= image_tag "escalade-icon.png", class: "logo" %>
+      <% end %>
+      <%= link_to "#", class: "icon" do %>
+        <%= image_tag "tennis-icon.png", class: "logo" %>
+      <% end %>
+      <%= link_to "#", class: "icon" do %>
+        <%= image_tag "swiming-icon.png", class: "logo" %>
+      <% end %>
+       <%= link_to "#", class: "icon" do %>
+        <%= image_tag "tennis-icon.png", class: "logo" %>
+      <% end %>
+      <%= link_to "#", class: "icon" do %>
+        <%= image_tag "escalade-icon.png", class: "logo" %>
+      <% end %>
+      <%= link_to "#", class: "icon" do %>
+        <%= image_tag "swiming-icon.png", class: "logo" %>
+      <% end %>
+  </div>
+  <h1 class="text-activs">Les activités du moment</h1>
+  <div class="row">
     <% @offers.each do |offer| %>
-      <li>
-        <h2><%= link_to offer.name, offer_path(offer) %></h2>
-        <p><%= offer.sport %> prix: <%= offer.price %> €</p>
-        <%# <% if offer.photo? %>
-          <%# <%= offer.photo %>
-        <%# <% end %>
-      </li>
+     <div class="col-3">
+        <div class="card-body">
+          <img src="https://source.unsplash.com/random/?<%= offer.sport %>" class="card-img-top" alt="...">
+          <div class="card-info">
+            <h4><%= offer.sport %></h4>
+            <h6><%= offer.name %></h6>
+            <h6><%= offer.user.email %></h6>
+            <h5 class="price"><%= offer.price %>.00 €</h5>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>

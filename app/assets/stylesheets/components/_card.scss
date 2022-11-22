@@ -1,0 +1,53 @@
+.card-body {
+  position: relative;
+  overflow: hidden;
+  height: 360px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // display: flex;
+  // align-items: center;
+  padding-bottom: 5px;
+  border-radius: 6px;
+  box-shadow: 5px 5px 5px rgba($color: gray, $alpha: 0.4);
+}
+.card-info h4{
+  padding: 5px;
+}
+.card-info h6{
+  padding: 5px;
+}
+.price{
+  position: absolute;
+  left: 230px;
+}
+.card-img-top{
+  height: 200px;
+}
+
+// .card-product img {
+//   height: 100%;
+//   width: 200px;
+//   object-fit: cover;
+//   margin: 0px 5px 0 5px ;
+// }
+
+// .card-product h2 {
+//   font-size: 16px;
+//   font-weight: bold;
+//   margin: 0;
+// }
+
+// .card-product p {
+//   font-size: 12px;
+//   line-height: 1.4;
+//   opacity: .7;
+//   margin-bottom: 0;
+//   margin-top: 8px;
+// }
+
+// .card-product .card-product-infos {
+//   padding: 16px;
+// }
+.col-3{
+  display: grid;
+}
