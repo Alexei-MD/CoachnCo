@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :offers, except: :index do
     resources :sessions, only: [ :new, :create, :index, :show ]
   end
-  get "my-sessions", to: "sessions#my-sessions"
-  get "my-offers", to: "sessions#my-offers"
+  get "my_sessions", to: "sessions#my_sessions"
+  get "my_offers", to: "offers#my_offers"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
