@@ -1,0 +1,5 @@
+<% if policy(@offer).edit? %>
+  <%= link_to "Edit this offer", edit_offer_path(@offer) %> |
+<% end %>
+<!-- [...] -->
+<%= button_to "Destroy this offer", @offer, method: :delete if policy(@offer).destroy? %>
