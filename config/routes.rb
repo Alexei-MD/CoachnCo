@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   get "my_sessions", to: "sessions#my_sessions"
   get "my_offers", to: "offers#my_offers"
+  get "profil", to: "pages#profil"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
