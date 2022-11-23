@@ -13,6 +13,9 @@
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
             <li class="nav-item">
+              <%= link_to "Mon profil", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
               <%= link_to "Mettre mon service sur Coach&Co", new_offer_path, class: "nav-link" %>
             </li>
             <li class="nav-item">

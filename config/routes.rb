@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 
   root to: "offers#index"
   resources :offers, except: :index do
+    collection do
+      get :escalade
+      get :tennis
+      get :swiming
+      get :running
+    end
     resources :sessions, only: [ :new, :create, :index, :show ]
   end
   get "my_sessions", to: "sessions#my_sessions"

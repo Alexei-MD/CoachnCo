@@ -16,12 +16,19 @@
 .card-info h6{
   padding: 5px;
 }
+p{
+  padding: 5px;
+}
 .price{
   position: absolute;
   left: 230px;
+  top: 320px
 }
 .card-img-top{
   height: 200px;
+}
+.col-3{
+  padding: 16px 8px 16px 8px;
 }
 
 // .card-product img {
