@@ -16,12 +16,9 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
-      <input class="form-control mt-3" type="text" placeholder="username" aria-label="default input example">
-      <label for="exampleFormControlTextarea1" class="form-label mt-5">Bio</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      <label for="exampleFormControlTextarea1" class="form-label">Expérience</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    
+      <%= f.input :username %>          
+      <%= f.input :bio %>
+      <%= f.input :experience %>    
     </div>
     <div class='row p-2 mt-5'>
       <div class="form-actions btn btn-outline-primary">

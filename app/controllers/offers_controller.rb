@@ -16,7 +16,6 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.user = current_user
     authorize @offer
-    # raise
     if @offer.save
       redirect_to offer_path(@offer)
     else
@@ -39,6 +38,8 @@ class OffersController < ApplicationController
 
   def destroy
     authorize @offer
+    @offer.destroy
+    redirect_to root_path
   end
 
   def my_offers
