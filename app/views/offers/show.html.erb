@@ -11,18 +11,19 @@
         <h3> <%= @offer.sport %> avec <%= @offer.user.username %></H3>
       <p> <%= @offer.user.bio %></p>
       <p> <%= @offer.user.experience %></p>
+      <p> blablabla</p>
       </p>
       </div>
       <div class="card-offer-price">
         <h2> <%= @offer.price %> € </h2>
       <div class="card-offer-validation">
-        <%= link_to "choisir cette session", offer_path, class: "btn btn-primary" %>
+        <%= link_to "choisir cette session", root_path, class: "btn btn-primary" %>
       </div>
       </div>
     </div>
   </div>
       <% if policy(@offer).edit? %>
-      <%= link_to "Edit this offer", edit_offer_path(@offer), class: "btn btn-primary" %>
+      <%= link_to "Edit this offer", class: "btn btn-primary" %>
       <% end %>
       <%= button_to "Destroy this offer", @offer, class: "btn btn-warning", method: :delete if policy(@offer).destroy?%>
   </div>
