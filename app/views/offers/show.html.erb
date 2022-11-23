@@ -1,21 +1,31 @@
 <div class="container">
-  <div class="banner">
-  <%= image_tag "banner.png" ,  height: 400, width: '100%'%>
-  </div>
-  <div class="card-offer">
+  <div class="banner-offer">
       <% if @offer.photo.key? %>
-      <%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @offer.photo.key, height: 300, width: 1000, crop: :fill %>
       <% end %>
+
+    <div class="card-offer">
+      <%= image_tag "avatar.jpeg"%>
       <div class="card-offer-title">
         <h2> <%= @offer.name %> </h2>
         <h3> <%= @offer.sport %> avec <%= @offer.user.username %></H3>
+      <p> <%= @offer.user.bio %></p>
+      <p> <%= @offer.user.experience %></p>
+      <p> blablabla</p>
+      </p>
       </div>
       <div class="card-offer-price">
         <h2> <%= @offer.price %> € </h2>
+      <div class="card-offer-validation">
+        <%= link_to "choisir cette session", root_path, class: "btn btn-primary" %>
       </div>
+      </div>
+    </div>
   </div>
-    <% if policy(@offer).edit? %>
-      <%= link_to "Edit this offer", edit_offer_path(@offer), class: "btn btn-primary" %> |
+      <% if policy(@offer).edit? %>
+      <%= link_to "Edit this offer", class: "btn btn-primary" %>
       <% end %>
       <%= button_to "Destroy this offer", @offer, class: "btn btn-warning", method: :delete if policy(@offer).destroy?%>
-   
+  </div>
+
+</div>

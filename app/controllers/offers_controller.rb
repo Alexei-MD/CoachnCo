@@ -40,6 +40,8 @@ class OffersController < ApplicationController
 
   def destroy
     authorize @offer
+    @offer.destroy
+    redirect_to root_path
   end
 
   def my_offers
