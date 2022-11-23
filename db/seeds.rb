@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts 'cleaning db'
+Session.destroy_all
+Offer.destroy_all
 User.destroy_all
 puts 'creating users'
 User.create(email: 'alex@mail.com', password: 'azerty', username: 'Alex', bio: 'Coach de foot', experience: 3);
