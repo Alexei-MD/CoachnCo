@@ -3,22 +3,25 @@
   </div>
 <div class="container">
   <div class="icons">
-     <%= link_to "#", class: "icon" do %>
+     <%= link_to "/offers/escalade", class: "icon" do %>
         <%= image_tag "escalade-icon.png", class: "logo" %>
       <% end %>
-      <%= link_to "#", class: "icon" do %>
+      <%= link_to "/offers/tennis", class: "icon" do %>
         <%= image_tag "tennis-icon.png", class: "logo" %>
       <% end %>
-      <%= link_to "#", class: "icon" do %>
+      <%= link_to swiming_offers_path(@offers), class: "icon" do %>
         <%= image_tag "swiming-icon.png", class: "logo" %>
       <% end %>
-       <%= link_to "#", class: "icon" do %>
+      <%= link_to "/offers/running", class: "icon" do %>
+        <%= image_tag "running.png", class: "logo" %>
+      <% end %>
+       <%= link_to "/offers/tennis", class: "icon" do %>
         <%= image_tag "tennis-icon.png", class: "logo" %>
       <% end %>
-      <%= link_to "#", class: "icon" do %>
+      <%= link_to "/offers/escalade", class: "icon" do %>
         <%= image_tag "escalade-icon.png", class: "logo" %>
       <% end %>
-      <%= link_to "#", class: "icon" do %>
+      <%= link_to "/offers", class: "icon" do %>
         <%= image_tag "swiming-icon.png", class: "logo" %>
       <% end %>
   </div>
@@ -31,8 +34,9 @@
           <div class="card-info">
             <h4><%= offer.sport %></h4>
             <h6><%= offer.name %></h6>
-            <h6><%= offer.user.email %></h6>
-            <h5 class="price"><%= offer.price %>.00 €</h5>
+            <h6><%= offer.user.username %></h6>
+            <p>A partir de <%= Time.now.strftime("%d/%m/%Y") %></p>
+            <h5 class="price"><strong><%= offer.price %>.00 €</strong></h5>
           </div>
         </div>
       </div>

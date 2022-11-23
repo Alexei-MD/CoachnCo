@@ -22,14 +22,12 @@ class OffersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-
   end
 
   def show
     @offer = Offer.find(params[:id])
     authorize @offer
   end
-
 
   def edit
     authorize @offer
@@ -48,13 +46,29 @@ class OffersController < ApplicationController
     authorize @offers
   end
 
+  def escalade
+    @offers = Offer.where(sport: "Escalade")
+  end
+
+  def tennis
+    @offers = Offer.where(sport: "Tennis")
+  end
+
+  def swiming
+    @offers = Offer.where(sport: "Swiming")
+    flash[:notice] = "Coming soon..."
+    redirect_to root_path
+  end
+
+  def running
+    @offers = Offer.where(sport: "Running")
+  end
+
   private
 
   def set_offer
     @offer = Offer.find(params[:id])
   end
-
-  private
 
   def offer_params
     params.require(:offer).permit(:name, :sport, :price, :photo)
