@@ -1,2 +1,8 @@
 <h1><%= @offers %></h1>
 <%= link_to "New offer", new_offer_path if policy(Offer).new? %>
+
+<div class="banner">
+    <%= image_tag "banner.png" ,  height: 400, width: "100%"%>
+</div>
+  <h1 class="text-activs">Mes propositions d'activités</h1>
+  <% @my_offers.each do |my_offer| %>
