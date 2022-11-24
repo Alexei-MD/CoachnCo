@@ -16,9 +16,10 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
-      <%= f.input :username %>          
+      <%= f.input :username %>
       <%= f.input :bio %>
-      <%= f.input :experience %>    
+      <%= f.input :experience %>
+      <%= f.input :photo, as: :file %>
     </div>
     <div class='row p-2 mt-5'>
       <div class="form-actions btn btn-outline-primary">
