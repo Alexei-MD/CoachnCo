@@ -4,11 +4,11 @@ class SessionsController < ApplicationController
     @sessions = Session.all
   end
 
-  def new
-    @session = Session.new
+  def show
   end
 
-  def show
+  def new
+    @session = Session.new
   end
 
   def create
@@ -17,4 +17,13 @@ class SessionsController < ApplicationController
   def my_sessions
   end
 
+  private
+
+  def set_session
+
+  end
+
+  def session_params
+
+  end
 end
