@@ -31,6 +31,7 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    @session = Session.new
     authorize @offer
   end
 
