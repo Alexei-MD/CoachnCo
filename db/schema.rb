@@ -49,8 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_115534) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "start_time"
-    t.datetime "end_time"
     t.integer "niveau"
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
