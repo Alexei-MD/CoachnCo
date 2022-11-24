@@ -1,8 +1,34 @@
-<h1><%= @offers %></h1>
-<%= link_to "New offer", new_offer_path if policy(Offer).new? %>
 
 <div class="banner">
     <%= image_tag "banner.png" ,  height: 400, width: "100%"%>
 </div>
-  <h1 class="text-activs">Mes propositions d'activités</h1>
-  <% @my_offers.each do |my_offer| %>
+  <h1 class="text-activs m-5">Mes offres</h1>
+  <div class='container'>
+    <% @my_offers.each do |my_offer| %>
+    <div class='container-offers'>
+      <ul>
+        <li><%= my_offer.name %></li>
+        <li><%= my_offer.sport %>Niv.<%= my_offer.niveau %></li>
+
+        <%# <li><%= image_tag <%= my_offer.photo %> , class:'photo-offer', height: 150, width: 100 %></li> %>
+        <div class='price'>
+          <li><%= my_offer.price %>€</li>
+        </div>
+        <div class='icon'>
+        <%= link_to '/edit', class: 'fa-regular' do %>
+          <i class='fa-regular fa-pen-to-square'></i>
+        <%end%>
+        <%= link_to '/ddelete', class: 'fa-regular' do %>
+          <i class="fa-solid fa-trash-can"></i>
+        <%end%>
+        </div>
+
+      </ul>
+    <% end %>
+      <%= link_to '/devise/registrations/users/edit', class: 'fa-solid' do %>
+        <i class="fa-solid fa-circle-plus"></i>
+      <% end %>
+      <%= link_to "New offer", new_offer_path if policy(Offer).new? %>
+  <div>
+
+  

@@ -30,11 +30,16 @@ class OffersController < ApplicationController
   end
 
   def edit
+    @offer = Offer.find(params[:id])
     authorize @offer
   end
 
   def update
+    @offer = Offer.find(params[:id])
+    @offer.update(offer_params)
     authorize @offer
+
+    redirect_to offer_path(@offer)
   end
 
   def destroy
@@ -46,6 +51,7 @@ class OffersController < ApplicationController
   def my_offers
     @offers = policy_scope(Offer)
     authorize @offers
+    @my_offers = @offers.where(user: current_user)
   end
 
   def escalade
@@ -56,14 +62,20 @@ class OffersController < ApplicationController
     @offers = Offer.where(sport: "Tennis")
   end
 
-  def swiming
-    @offers = Offer.where(sport: "Swiming")
-    flash[:notice] = "Coming soon..."
-    redirect_to root_path
+  def swimming
+    @offers = Offer.where(sport: "Swimming")
   end
 
   def running
     @offers = Offer.where(sport: "Running")
+  end
+
+  def golf
+    @offers = Offer.where(sport: "Golf")
+  end
+
+  def gym
+    @offers = Offer.where(sport: "Gym")
   end
 
   private
@@ -73,6 +85,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:name, :sport, :price, :photo)
+    params.require(:offer).permit(:name, :sport, :price, :niveau, :photo)
   end
 end

@@ -17,8 +17,8 @@
       <div class="card-offer-price">
         <h2> <%= @offer.price %> € </h2>
       <div class="card-offer-validation">
-        <%= simple form_for @session %>
-        <%=  f.input :start_date, as: :date, html5: true %>
+        <%= simple form_for @session do |f| %>
+          <%=  f.input :start_date, as: :date, html5: true %>
         <%= button_to "Choisir cette session", offer_sessions_path(@offer), method: 'post', params: { date: Date.today }  %>
       </div>
       </div>
