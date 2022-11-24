@@ -4,6 +4,7 @@
   <%= simple_form_for @offer do |f| %>
     <%= f.input  :name %>
     <%= f.input  :sport, as: :select, collection: Offer::SPORT %>
+      <%= f.input  :niveau, as: :select, collection: Offer::NIV %>
     <%= f.input  :price %>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit, "Mettre à jour", class: "btn btn-primary" %>
