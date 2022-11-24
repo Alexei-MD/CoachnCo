@@ -1,22 +1,36 @@
-<div class="banner">
-    <%= image_tag "banner.png" ,  height: 400, width: "100%"%>
+<div class='banner'>
+    <%= image_tag 'banner.png' ,  height: 400, width: '100%'%>
 </div>
-<div class="container w-50 mt-5">
- <h1>Bienvenue <%= @user.username %></h1>
-<div >
-<ul>
-    <li><%= @user.email%></li>
-    <li><%= @user.bio%></li>
-    <li><%= @user.experience%>/5</li>
-</ul>
-   <div class='btn btn-outline-primary rounded-5 mt-3'>
-    <%= link_to "Mes Offres", root_path %>
-    </div>
-    <div class='btn btn-outline-success p-2 rounded-5 mt-3'>
-    <%= link_to "Mes Sessions", root_path %>
-    </div>
 
-</div>
+<div class='container mt-5'>
+ <h1>Bienvenue <%= @user.username %></h1>
+ <h4>Vos informations de profils</h4>
+  <div class='container-profil mt-3'>
+    <div>
+      <%= image_tag 'avatar.jpg', class:'avatar-profil', height: 100, width: 100 %>
+    </div>
+    <div class='text-profil'>
+     <ul>
+        <li><%= @user.email%></li>
+        <li><%= @user.bio%></li>
+        <li><%= @user.experience%>ans d'expérience(s)</li>
+        <%= link_to '/devise/registrations/users/edit', class: 'fa-regular' do %>
+          <i class='fa-regular fa-pen-to-square'></i>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+    <div class='date-recap'>
+      <p>Ce <%= Time.now.strftime("%B %e, %Y") %> vous proposez "#" offre(s) et avez "#" mission(s) prévue(s)</p>
+    </div>
+    <div class='image-link'>
+      <%= link_to '/my_offers', class: 'link-offers' do %>
+        <%= image_tag 'link-offres.png', class:'link-offers', height: 150, width: 250 %>
+      <%end%>
+      <%= link_to '/my_offers', class: 'link-missions' do %>
+        <%= image_tag 'link-mission.png', class:'link-missions', height: 150, width: 250 %>
+      <%end%> 
+    </div>   
 </div>
 
 
