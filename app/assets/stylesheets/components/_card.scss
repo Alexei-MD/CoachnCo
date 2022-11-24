@@ -10,6 +10,11 @@
   border-radius: 6px;
   box-shadow: 5px 5px 5px rgba($color: gray, $alpha: 0.4);
 }
+
+.card-body img {
+  object-fit: cover;
+}
+
 .card-info h4{
   padding: 5px;
 }
