@@ -45,7 +45,7 @@ h1 {
 .card-offer-price {
   font-size: 14px;
   font-weight: bold;
-  margin: 0 12px;
+  margin: 10px 12px;
 }
 
 .card-offer-price h2 {
@@ -54,5 +54,7 @@ h1 {
   left: 140px;
 }
 .card-offer-validation {
-  margin: 12px 12px
+  display: flex;
+  justify-content: space-between;
+  margin: 12px;
 }

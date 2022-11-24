@@ -29,11 +29,16 @@ class OffersController < ApplicationController
   end
 
   def edit
+    @offer = Offer.find(params[:id])
     authorize @offer
   end
 
   def update
+    @offer = Offer.find(params[:id])
+    @offer.update(offer_params)
     authorize @offer
+
+    redirect_to offer_path(@offer)
   end
 
   def destroy
@@ -73,6 +78,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:name, :sport, :price, :photo)
+    params.require(:offer).permit(:name, :sport, :price, :niveau, :photo)
   end
 end
