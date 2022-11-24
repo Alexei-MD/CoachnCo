@@ -23,15 +23,15 @@
     <div class='date-recap'>
       <p>Ce <%= Time.now.strftime("%B %e, %Y") %> vous proposez "#" offre(s) et avez "#" mission(s) prévue(s)</p>
     </div>
+    <% if current_user.offers.size === 0 %>
     <div class='image-link'>
-      <%= link_to '/my_offers', class: 'link-offers' do %>
+      <%= link_to my_sessions_path, class: 'link-missions' do %>
+        <%= image_tag 'link-mission.png', class:'link-missions', height: 150, width: 250 %>
+      <%end%>
+      <% else %>
+        <%= link_to '/my_offers', class: 'link-offers' do %>
         <%= image_tag 'link-offres.png', class:'link-offers', height: 150, width: 250 %>
       <%end%>
-      <%= link_to '/my_offers', class: 'link-missions' do %>
-        <%= image_tag 'link-mission.png', class:'link-missions', height: 150, width: 250 %>
-      <%end%> 
-    </div>   
+      <% end %>
+    </div>
 </div>
-
-
-

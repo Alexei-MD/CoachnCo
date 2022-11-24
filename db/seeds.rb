@@ -14,11 +14,14 @@ User.create(email: 'alex@mail.com', password: 'azerty', username: 'Alex', bio: '
 User.create(email: 'farnci@mail.com', password: 'azerty', username: 'Franci', bio: 'Coach de running', experience: 5);
 User.create(email: 'sophie@mail.com', password: 'azerty', username: 'Sophie');
 User.create(email: 'vannesa@mail.com', password: 'azerty', username: 'Vannesa');
-
+puts 'creating offers'
 User.all.each do  |user|
   Offer.create(name: 'Escalade pour les debutants', sport: 'Escalade', price: 25, user: user)
   Offer.create(name: 'Escalade pour les experimentes', sport: 'Escalade', price: 55, user: user)
   Offer.create(name: 'Running pour les debutants', sport: 'Running', price: 25, user: user)
   Offer.create(name: 'Tennis pour les debutants', sport: 'Tennis', price: 35, user: user)
 end
+Session.create(date: "25/11/2022", user_id: 11, offer_id: 39);
+Session.create(date: "25/11/2022", user_id: 12, offer_id: 45);
+Session.create(date: "25/11/2022", user_id: 13, offer_id: 52);
 puts 'all id good !'
