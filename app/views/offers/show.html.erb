@@ -1,31 +1,36 @@
 <div class="container">
   <div class="banner-offer">
       <% if @offer.photo.key? %>
-        <%= cl_image_tag @offer.photo.key, height: 300, width: 1000, crop: :fill %>
+      <%= cl_image_tag @offer.photo.key, height: 300, width: 1000, crop: :fill %>
       <% end %>
+
     <div class="card-offer">
       <%= image_tag "avatar.jpg"%>
-        <div class="card-offer-title">
-        <br>
-          <h2><%= @offer.name %></h2>
-          <h3><%= @offer.sport %> avec <%= @offer.user.username %></h3>
-        <p><%= @offer.user.bio %></p>
-        <p><%= @offer.user.experience %></p>
-        <p>blablabla</p>
-        </div>
-          <div class="card-offer-price">
-          <h2><%= @offer.price %> €</h2>
-            <div class="card-offer-validation">
-              <% if policy(@offer).edit? %>
-              <%= link_to "Edit this offer", edit_offer_path, class: "btn btn-primary" %>
-              <% end %>
-              <%= button_to "Destroy this offer", @offer, class: "btn btn-warning", method: :delete if policy(@offer).destroy?%>
-            </div>
-          </div>
-        </div>
-        <div class="booking">
-          <%= link_to "choisir cette session", root_path, class: "btn btn-primary" %>
-        </div>
+      <div class="card-offer-title">
+        <h2> <%= @offer.name %> </h2>
+        <h3> <%= @offer.sport %> avec <%= @offer.user.username %></H3>
+      <p> <%= @offer.user.bio %></p>
+      <p> <%= @offer.user.experience %></p>
+      <p> blablabla</p>
+      </p>
+      </div>
+      <div class="card-offer-price">
+        <h2> <%= @offer.price %> € </h2>
+      <div class="card-offer-validation">
+        <%= simple_form_for [@offer, @session] do |f| %>
+          <%= f.input :start_time, as: :date, html5: true %>
+          <%= f.input :end_time, as: :date, html5: true  %>
+          <%= f.button :submit %>
+        <% end %>
+        <%# <%= button_to "Choisir cette session", offer_sessions_path(@offer), method: 'post', params: { date: Date.today }  %> %>
+      </div>
+      </div>
     </div>
   </div>
+      <% if policy(@offer).edit? %>
+      <%= link_to "Edit this offer", class: "btn btn-primary" %>
+      <% end %>
+      <%= button_to "Destroy this offer", @offer, class: "btn btn-warning", method: :delete if policy(@offer).destroy?%>
+  </div>
+
 </div>
