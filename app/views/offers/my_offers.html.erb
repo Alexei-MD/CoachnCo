@@ -4,38 +4,19 @@
 </div>
   
   <h1 class="text-activs m-5">Mes offres</h1>
-    
-    <div class='container'>
+
+    <div class='container-offers'>
       <% @my_offers.each do |my_offer| %>
-        <div class='container-offers'>
-          <ul>
-            <li><%= my_offer.name %></li>
-            <li><%= my_offer.sport %>Niv.<%= my_offer.niveau %></li>
-            <li>
-              <% if my_offer.photo.key? %>
-              <%= cl_image_tag my_offer.photo.key , class:'photo-offer', height: 150, width: 100 %>
-              <% end %>
-            </li>
-            <div class='price'>
-              <li><%= my_offer.price %>€</li>
-            </div>
-        <div class='icon'>
-          <%= link_to '/edit', class: 'fa-regular' do %>
-            <i class='fa-regular fa-pen-to-square'></i>
-          <%end%>
-          <%= link_to '/delete', class: 'fa-regular' do %>
-            <i class="fa-solid fa-trash-can"></i>
-          <%end%>
-        </div>
-      </ul>
-    <%end%>
-
-  
-      <%# <%= link_to '/devise/registrations/users/edit', class: 'fa-solid' do %> 
+        <%= link_to offer_path(my_offer), class: "my-offer-card" do %>
+          <p><%= my_offer.name %></p>
+          <p><%= my_offer.sport %></p>
+          <p>Niv.<%= my_offer.niveau %></p>
+          <p><%= my_offer.price %>€</p>
+        <% end %>
+      <% end %>
+      <%= link_to '/offers/new', class: "plus-icon" do %>
         <i class="fa-solid fa-circle-plus"></i>
-      <%# <% end %>
-
-      <%= link_to "New offer", new_offer_path if policy(Offer).new? %>
-    <div>
+      <% end %>
+    </div>
 
   
