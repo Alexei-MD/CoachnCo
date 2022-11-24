@@ -3,7 +3,13 @@ class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @offers = Offer.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR sport ILIKE :query"
+      @offers = Offer.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @offers = Offer.all
+      # raise
+    end
   end
 
   def new

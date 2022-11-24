@@ -2,7 +2,7 @@
     <div class="container-fluid">
 
       <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "https://res.cloudinary.com/dge8yully/image/upload/v1669126590/development/Logo-c-n-g_wgjqr1.png" %>
+        <%= image_tag "https://res.cloudinary.com/dge8yully/image/upload/v1669304679/development/Group_8_1_vjo5t7.png" %>
       <% end %>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,6 +11,15 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
+            <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Rechercher une offre"
+              %>
+            <%= submit_tag "Rechercher", class: "btn btn-light" %>
+          <% end %>
+          <br>
           <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to "Mon profil", profil_path, class: "nav-link" %>
@@ -27,7 +36,7 @@
                 <%= link_to "Action", "#", class: "dropdown-item" %>
                 <%= link_to "Another action", "#", class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
-                 class: "dropdown-item" %>
+                class: "dropdown-item" %>
               </div>
             </li>
           <%else%>
