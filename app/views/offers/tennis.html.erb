@@ -23,17 +23,17 @@
       <% end %>
    </div>
   <h1 class="text-activs" style= "padding: 8px">Les activités du moment</h1>
-  <div class="row">
+  <div class="row w-100">
     <% @offers.each do |offer| %>
      <div class="col-3">
         <div class="card-body">
-          <% if offer.photo.key? %>
-          <img src="<%= cloudinary_url(offer.photo.key) %>" class="card-img-top" alt="...">
-          <% else %>
+        <% if offer.photo.key? %>
+          <%= cl_image_tag offer.photo.key, crop: :fill, class: "card-img-top" %>
+        <% else %>
           <img src="https://source.unsplash.com/random/?<%= offer.sport %>" class="card-img-top" alt="...">
-          <% end %>
+        <% end %>
           <div class="card-info">
-            <h4><%= offer.sport %></h4>
+            <h4><%= link_to offer.sport, offer_path(offer) %></h4>
             <h6><%= offer.name %></h6>
             <h6><%= offer.user.username %></h6>
             <p>A partir de <%= Time.now.strftime("%d/%m/%Y") %></p>
