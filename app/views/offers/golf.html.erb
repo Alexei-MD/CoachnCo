@@ -27,11 +27,11 @@
     <% @offers.each do |offer| %>
      <div class="col-3">
         <div class="card-body">
-        <% if offer.photo.key? %>
-          <img src="<%= cloudinary_url(offer.photo.key)%>" class="card-img-top" alt="...">
-        <% else %>
+          <% if offer.photo.key? %>
+          <img src="<%= cloudinary_url(offer.photo.key) %>" class="card-img-top" alt="...">
+          <% else %>
           <img src="https://source.unsplash.com/random/?<%= offer.sport %>" class="card-img-top" alt="...">
-        <% end %>
+          <% end %>
           <div class="card-info">
             <h4><%= offer.sport %></h4>
             <h6><%= offer.name %></h6>

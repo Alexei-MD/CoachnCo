@@ -6,8 +6,10 @@ Rails.application.routes.draw do
     collection do
       get :escalade
       get :tennis
-      get :swiming
+      get :swimming
       get :running
+      get :golf
+      get :gym
     end
     resources :sessions, only: [ :new, :create, :index, :show ]
   end

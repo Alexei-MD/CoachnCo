@@ -55,14 +55,20 @@ class OffersController < ApplicationController
     @offers = Offer.where(sport: "Tennis")
   end
 
-  def swiming
-    @offers = Offer.where(sport: "Swiming")
-    flash[:notice] = "Coming soon..."
-    redirect_to root_path
+  def swimming
+    @offers = Offer.where(sport: "Swimming")
   end
 
   def running
     @offers = Offer.where(sport: "Running")
+  end
+
+  def golf
+    @offers = Offer.where(sport: "Golf")
+  end
+
+  def gym
+    @offers = Offer.where(sport: "Gym")
   end
 
   private
