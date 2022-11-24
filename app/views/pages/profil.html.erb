@@ -7,21 +7,34 @@
  <h4>Vos informations de profils</h4>
   <div class='container-profil mt-3'>
     <div>
-      <%= image_tag 'avatar.jpg', class:'avatar-profil', height: 100, width: 100 %>
+        <% if @user.photo.key? %>
+          <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar-profil"%>
+        <% else %>
+          <%= image_tag "https://source.unsplash.com/random/?", class:'avatar-profil', height: 100, width: 100 %>
+        <% end %>
     </div>
     <div class='text-profil'>
      <ul>
         <li><%= @user.email%></li>
         <li><%= @user.bio%></li>
         <li><%= @user.experience%>ans d'expérience(s)</li>
-        <%= link_to '/devise/registrations/users/edit', class: 'fa-regular' do %>
-          <i class='fa-regular fa-pen-to-square'></i>
-        <%end%>
+        <%# <%= link_to '/devise/registrations/users/edit', class: 'fa-regular' do %>
+          <%# <i class='fa-regular fa-pen-to-square'></i> %>
+        <%#end%>
+      <br>
+      <li><h3>Vous avez gagné :
+      <% @sum = 0  %>
+      <% @user.sessions.each do |session|  %>
+      <% @price = session.offer.price  %>
+      <% @sum += @price %>
+      <% end %>
+      <%= @sum %> euros
+      </h3></li>
       </ul>
     </div>
   </div>
     <div class='date-recap'>
-      <p>Ce <%= Time.now.strftime("%B %e, %Y") %> vous proposez "#" offre(s) et avez "#" mission(s) prévue(s)</p>
+      <p>Ce <%= Time.now.strftime("%B %e, %Y") %> vous proposez <%= @user.offers.count %> offre(s) et avez <%= @user.sessions.count %> session(s) prévue(s)</p>
     </div>
     <% if current_user.offers.size === 0 %>
     <div class='image-link'>

@@ -27,9 +27,10 @@
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       <label for="exampleFormControlTextarea1" class="form-label">Expérience</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <%= f.input :photo, as: :file %>
 
   </div>
-  
+
   <div class='row p-2 mt-5'>
     <div class="form-actions btn btn-primary mt-3">
       <%= f.button :submit, "Update", class:"text-white" %>
