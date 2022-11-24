@@ -45,6 +45,7 @@ class OffersController < ApplicationController
   def my_offers
     @offers = policy_scope(Offer)
     authorize @offers
+    @my_offers = @offers.where(user: current_user)
   end
 
   def escalade
