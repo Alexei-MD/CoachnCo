@@ -1,3 +1,18 @@
-<% @my_sessions.each do |my_session| %>
-  <%= my_session.user.username %>
-<% end %>
+ <h1>Mes sessions</h1>
+ <div class="container">
+  <div class="row w-100">
+      <% @my_sessions.each do |session| %>
+      <div class="col-3">
+          <div class="card-body-mission">
+            <img src="https://source.unsplash.com/random/?<%= session.offer.sport %>" class="card-img-top" alt="...">
+            <div class="card-info">
+              <h4><%= session.offer.name %></h4>
+              <h4 class="mission"><strong><%= session.user.username %></strong></h4>
+              <p class="mission">A partir <%= session.start_time.strftime("%d of %B, %Y")%></p>
+              <p class="mission">Avec: <%= session.offer.user.username %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+ </div>
