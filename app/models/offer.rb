@@ -9,5 +9,5 @@ class Offer < ApplicationRecord
   validates :sport, presence: true
   validates :price, presence: true
   validates :niveau, presence: true
-
+  # validates :photo, presence: true
 end

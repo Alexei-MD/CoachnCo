@@ -2,6 +2,8 @@
   <div class="banner-offer">
       <% if @offer.photo.key? %>
       <%= cl_image_tag @offer.photo.key, height: 300, width: 1000, crop: :fill %>
+      <% else %>
+        <img src="https://source.unsplash.com/random/?<%= @offer.sport %>" class="card-img-top" alt="...">
       <% end %>
 
     <div class="card-offer">
@@ -24,17 +26,14 @@
             </div>
           </div>
         </div>
-        <%= simple_form_for [@offer, @session] do |f| %>
-          <%= f.input :start_time, as: :date, html5: true %>
-          <%= f.input :end_time, as: :date, html5: true  %>
-          <%= f.button :submit %>
-        <% end %>
-        <%# <%= button_to "Choisir cette session", offer_sessions_path(@offer), method: 'post', params: { date: Date.today }  %> %>
+            <% if policy(@offer).edit? == false %>
+              <%= simple_form_for [@offer, @session] do |f| %>
+                  <%= f.input :start_time, as: :date, html5: true %>
+                  <%= f.input :end_time, as: :date, html5: true  %>
+                  <%= f.button :submit, "Réserver cette session", class: "btn btn-primary" %>
+                <% end %>
+            <% end %>
     </div>
   </div>
-      <% if policy(@offer).edit? %>
-      <%= link_to "Edit this offer", class: "btn btn-primary" %>
-      <% end %>
-      <%= button_to "Destroy this offer", @offer, class: "btn btn-warning", method: :delete if policy(@offer).destroy?%>
   </div>
 </div>
