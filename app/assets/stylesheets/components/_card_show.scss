@@ -36,6 +36,16 @@ h1 {
   object-fit: cover;
   background-position:center;
 }
+.img_avatar{
+  position: absolute;
+  top: 310px;
+  left: 1200px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
 
 .card-offer-title {
   font-size: 14px;

@@ -5,9 +5,7 @@
       <% else %>
         <img src="https://source.unsplash.com/random/?<%= @offer.sport %>" class="card-img-top" alt="...">
       <% end %>
-
     <div class="card-offer">
-      <%= image_tag "avatar.jpg"%>
         <div class="card-offer-title">
         <br>
           <h2><%= @offer.name %></h2>
@@ -33,7 +31,8 @@
                   <%= f.button :submit, "Réserver cette session", class: "btn btn-primary" %>
                 <% end %>
             <% end %>
-    </div>
   </div>
   </div>
+  </div>
+      <%= image_tag "avatar.jpg", class:"img_avatar"%>
 </div>
