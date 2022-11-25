@@ -6,7 +6,6 @@
     grid-auto-rows: minmax(100px, auto);
     margin-left: 50px;
     margin-right: 50px;
-    
 }
 
 .my-offer-card {
@@ -17,8 +16,8 @@
     border-radius: 10px;
 }
 
-.containers-offers a:last-child {
-    display: flex;
+.containers-offers p {
+  text-align: center;
 }
 
 .fa-solid {
@@ -35,4 +34,9 @@
 
 .plus-icon {
     display: flex;
+}
+
+.my-offer-card-img {
+    max-width: 100%;
+    border-radius: 15px 15px 0 0;
 }
