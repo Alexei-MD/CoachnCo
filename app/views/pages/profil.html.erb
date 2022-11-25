@@ -30,7 +30,7 @@
     </div>
   </div>
     <div class='date-recap'>
-      <h4>Ce <%= Time.now.strftime("%B %e, %Y") %> vous proposez <%= @user.offers.count %> offre(s) et avez <%= @user.sessions.count %> session(s) prévue(s)</h4>
+      <h4>Ce <%= Time.now.strftime("%B %e, %Y") %> vous proposez <strong><%= @user.offers.count %></strong> offre(s) et avez <strong><%= @user.sessions.count %></strong> session(s) prévue(s)</h4>
     </div>
     <% if current_user.offers.size === 0 %>
     <div class='image-link'>
