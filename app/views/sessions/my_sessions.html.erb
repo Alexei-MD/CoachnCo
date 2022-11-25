@@ -4,7 +4,11 @@
       <% @my_sessions.each do |session| %>
       <div class="col-3">
           <div class="card-body-mission">
-            <img src="https://source.unsplash.com/random/?<%= session.offer.sport %>" class="card-img-top" alt="...">
+          <% if session.offer.photo.key? %>
+           <%= cl_image_tag session.offer.photo.key, class: "card-img-top" %>
+           <% else %>
+            <img src="https://source.unsplash.com/random/? <%= session.offer.sport %>" class="card-img-top" alt="...">
+          <% end %>
             <div class="card-info">
               <h4><%= session.offer.name %></h4>
               <h4 class="mission"><strong><%= session.user.username %></strong></h4>

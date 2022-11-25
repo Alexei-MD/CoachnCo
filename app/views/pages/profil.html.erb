@@ -17,24 +17,20 @@
      <ul>
         <li><%= @user.email%></li>
         <li><%= @user.bio%></li>
-        <li><%= @user.experience%>ans d'expérience(s)</li>
+        <li><%= @user.experience%> ans d'expérience(s)</li>
         <%# <%= link_to '/devise/registrations/users/edit', class: 'fa-regular' do %>
           <%# <i class='fa-regular fa-pen-to-square'></i> %>
         <%#end%>
       <br>
       <li><h3>Vous avez gagné :
-      <% @sum = 0  %>
-      <% @user.sessions.each do |session|  %>
-      <% @price = session.offer.price  %>
-      <% @sum += @price %>
-      <% end %>
       <%= @sum %> euros
+
       </h3></li>
       </ul>
     </div>
   </div>
     <div class='date-recap'>
-      <p>Ce <%= Time.now.strftime("%B %e, %Y") %> vous proposez <%= @user.offers.count %> offre(s) et avez <%= @user.sessions.count %> session(s) prévue(s)</p>
+      <h4>Ce <%= Time.now.strftime("%B %e, %Y") %> vous proposez <%= @user.offers.count %> offre(s) et avez <%= @user.sessions.count %> session(s) prévue(s)</h4>
     </div>
     <% if current_user.offers.size === 0 %>
     <div class='image-link'>
@@ -48,8 +44,24 @@
         <%= image_tag 'link-offres.png', class:'link-offers', height: 150, width: 250 %>
         <%end%>
         <%= link_to my_sessions_path, class: 'link-missions' do %>
-        <%= image_tag 'link-mission.png', class:'link-missions', height: 150, width: 250 %>
+        <%= image_tag 'link-sessions.png', class:'link-missions', height: 150, width: 250 %>
       <%end%>
          </div>
       <% end %>
 </div>
+<div class=bar_pro>
+<h4>Your progress</h4>
+  <div class="progress">
+  <% if @user.sessions.count == 0 %>
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+    <% elsif @user.sessions.count == 1 %>
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
+    <% elsif @user.sessions.count == 2 %>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+    <% elsif @user.sessions.count == 3  %>
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+    <% else %>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+
+<% end %>
+  </div>
