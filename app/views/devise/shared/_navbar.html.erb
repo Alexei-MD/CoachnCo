@@ -17,8 +17,6 @@
             <li class="nav-item">
               <%= link_to "Mettre mon service sur Coach&Co", new_offer_path, class: "nav-link" %>
             </li>
-            <li class="nav-item">
-            </li>
             <li class="nav-item dropdown">
               <%= image_tag "avatar.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -30,6 +28,9 @@
           <%else%>
             <li class="nav-item">
               <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+            <li>
+              <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
             </li>
           <%end%>
         </ul>
