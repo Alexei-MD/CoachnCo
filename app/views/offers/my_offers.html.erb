@@ -2,12 +2,11 @@
 <div class="banner">
     <%= image_tag "banner.png" ,  height: 400, width: "100%"%>
 </div>
-  
   <h1 class="text-activs m-5">Mes offres</h1>
-
     <div class='container-offers'>
       <% @my_offers.each do |my_offer| %>
         <%= link_to offer_path(my_offer), class: "my-offer-card" do %>
+        <img src="https://source.unsplash.com/random/orientation=landscape?", class="my-offer-card-img"  alt="image-sport">
           <p><%= my_offer.name %></p>
           <p><%= my_offer.sport %></p>
           <p>Niv.<%= my_offer.niveau %></p>
@@ -18,5 +17,6 @@
         <i class="fa-solid fa-circle-plus"></i>
       <% end %>
     </div>
+
 
   
