@@ -10,9 +10,8 @@
         <br>
           <h2><%= @offer.name %></h2>
           <h3><%= @offer.sport %> avec <%= @offer.user.username %></h3>
-        <p><%= @offer.user.bio %></p>
-        <p><%= @offer.user.experience %></p>
-        <p>blablabla</p>
+        <h5><%= @offer.user.bio %></h5>
+        <h5>Experience<%= @offer.user.experience %></h5>
         </div>
           <div class="card-offer-price">
           <h2><%= @offer.price %> €</h2>
